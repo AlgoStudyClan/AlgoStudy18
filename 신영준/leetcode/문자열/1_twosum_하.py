@@ -5,7 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        n = len(num)
+        n = len(nums)
 
         # for loof 2ea -> for for? O(n^2)
         # 가능한 두 수의 조합을 찾고 그 합이 target과 같은 경우 index를 return
