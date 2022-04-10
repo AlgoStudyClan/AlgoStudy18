@@ -1,27 +1,17 @@
-
 import sys
 input = sys.stdin.readline
 
-hh1, mm1, ss1 = map(int, input().split(":"))
-hh2, mm2, ss2 = map(int, input().split(":"))
-h  = (hh2 - hh1)
-m = (mm2 - mm1)
-s = (ss2 - ss1)
-if s < 0:
-    m -= 1
-    s += 60
-if m < 0:
-    h -= 1
-    m += 60
-if h < 0:
-    h += 24
+DAY2S = 24 * 60 * 60
 
-# 적어도 1초 이상 24시간 이하...... 00:00:00 => 24:00:00
-if h == 0 and m == 0 and s == 0:
-    h = 24
 
-str_h = str(h).zfill(2)
-str_m = str(m).zfill(2)
-str_s = str(s).zfill(2)
+t1 = list(map(int, input().split(":")))
+t2 = list(map(int, input().split(":")))
 
-print(f"{str_h}:{str_m}:{str_s}")
+t1s = t1[0] * 3600 + t1[1] * 60 + t1[2]
+t2s = t2[0] * 3600 + t2[1] * 60 + t2[2]
+
+diff = (t2s - t1s + DAY2S) % DAY2S
+if diff == 0:
+    diff = diff + DAY2S
+
+print("%02d:%02d:%02d" % (diff // 3600, (diff % 3600) // 60, diff % 60))
