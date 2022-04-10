@@ -16,6 +16,10 @@ if m < 0:
 if h < 0:
     h += 24
 
+# 적어도 1초 이상 24시간 이하...... 00:00:00 => 24:00:00
+if h == 0 and m == 0 and s == 0:
+    h = 24
+
 str_h = str(h).zfill(2)
 str_m = str(m).zfill(2)
 str_s = str(s).zfill(2)
