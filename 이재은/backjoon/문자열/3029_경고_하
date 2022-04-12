@@ -1,0 +1,9 @@
+import sys
+nh, nm, ns = map(int, sys.stdin.readline().strip().split(':'))
+th, tm, ts = map(int, sys.stdin.readline().strip().split(':'))
+
+now = (nh*60*60) + (nm*60) + ns
+throw = (th*60*60) + (tm*60) + ts
+
+wait = throw - now if throw>now else (throw - now + 24*60*60)
+print('%02d:%02d:%02d'%(wait//60//60, wait//60%60, wait%60))
