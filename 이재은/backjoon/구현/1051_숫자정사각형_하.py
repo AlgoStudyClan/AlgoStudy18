@@ -1,16 +1,12 @@
 a = list(map(int, input().strip().split()))
 square = [list(map(int,input().strip())) for i in range(a[0])]
 max_size = min(a)
+answer = 0
 
-def fun(max_size, square, a):
-    while(max_size > 0):
-        print('max',max_size)
-        for j in range(a[0]-max_size+1):
-            for i in range(a[1]-max_size+1):
-                print(i,j)
-                if square[j][i] == square[j+max_size-1][i+max_size-1] == square[j][i+max_size-1] == square[j+max_size-1][i]:
-                    return max_size*max_size
-        max_size -= 1
+for i in range(a[0]):
+    for j in range(a[1]):
+        for k in range(max_size):
+            if((i + k) < a[0]) and ((j + k) < a[1]) and (square[i][j] == square[i][j+k] == square[i+k][j] == square[i+k][j+k]):
+                answer = max(answer, (k+1)*(k+1))
 
-answer = fun(max_size, square, a)
 print(answer)
