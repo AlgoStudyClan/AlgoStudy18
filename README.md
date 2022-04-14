@@ -79,9 +79,6 @@
 ├── algorithm
 │   ├──
 │   └──
-├── tip
-│   ├──
-│   └──
 ├── programmers
 │   ├── lv1
 │   ├── lv2
