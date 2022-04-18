@@ -5,7 +5,8 @@ def solution(distance, rocks, n):
         for rock in rocks:
             if rock - before < x:
                 remove += 1
-            before = rock
+            else:
+                before = rock
         if distance - before < x:
             remove += 1
         return remove <= limit
