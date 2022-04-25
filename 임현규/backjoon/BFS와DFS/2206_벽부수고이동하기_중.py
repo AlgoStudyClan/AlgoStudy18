@@ -26,7 +26,7 @@ def bfs(board):
             for i in range(4):
                 ny = y + dy[i]
                 nx = x + dx[i]
-                if 0 <= ny < N and 0 <= nx < M and (ny, nx) not in visited:
+                if 0 <= ny < N and 0 <= nx < M and ((ny, nx) not in visited or (board[ny][nx] == '1' and talent == 1 and (ny, nx) in visited)):
                     if board[ny][nx] == '1' and talent == 1:
                         q.append((talent - 1, ny, nx))
                         visited.add((ny, nx))
