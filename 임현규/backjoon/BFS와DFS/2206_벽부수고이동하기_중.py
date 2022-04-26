@@ -13,7 +13,7 @@ board = [list(input().rstrip()) for _ in range(N)]
 def bfs(board):
     q = deque([(1, 0, 0)])
     visited = set()
-    visited.add((0, 0))
+    visited.add((1, 0, 0))
     time = 1
     dy = [-1, 0, 1, 0]
     dx = [0, 1, 0, -1]
@@ -26,7 +26,7 @@ def bfs(board):
             for i in range(4):
                 ny = y + dy[i]
                 nx = x + dx[i]
-                if 0 <= ny < N and 0 <= nx < M and ((ny, nx) not in visited or (board[ny][nx] == '1' and talent == 1 and (ny, nx) in visited)):
+                if 0 <= ny < N and 0 <= nx < M and (talent, ny, nx) not in visited:
                     if board[ny][nx] == '1' and talent == 1:
                         q.append((talent - 1, ny, nx))
                         visited.add((ny, nx))
