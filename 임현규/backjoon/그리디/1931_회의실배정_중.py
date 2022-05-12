@@ -9,7 +9,7 @@ for _ in range(N):
     intervals.append((s, e))
     
 
-intervals.sort(key=lambda x: x[1])
+intervals.sort(key=lambda x: (x[1], x[0]))
 print(intervals)
 
 cnt = 1
